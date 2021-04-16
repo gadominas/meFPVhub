@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/meFPVhub/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/meFPVhub/static/js/main.0e2f51f0.chunk.js",
+    "main.js.map": "/meFPVhub/static/js/main.0e2f51f0.chunk.js.map",
+    "runtime-main.js": "/meFPVhub/static/js/runtime-main.c5f7692c.js",
+    "runtime-main.js.map": "/meFPVhub/static/js/runtime-main.c5f7692c.js.map",
+    "static/js/2.30b64f09.chunk.js": "/meFPVhub/static/js/2.30b64f09.chunk.js",
+    "static/js/2.30b64f09.chunk.js.map": "/meFPVhub/static/js/2.30b64f09.chunk.js.map",
+    "static/js/3.b810c763.chunk.js": "/meFPVhub/static/js/3.b810c763.chunk.js",
+    "static/js/3.b810c763.chunk.js.map": "/meFPVhub/static/js/3.b810c763.chunk.js.map",
+    "index.html": "/meFPVhub/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/meFPVhub/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.30b64f09.chunk.js.LICENSE.txt": "/meFPVhub/static/js/2.30b64f09.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/meFPVhub/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c5f7692c.js",
+    "static/js/2.30b64f09.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.0e2f51f0.chunk.js"
+  ]
+}
