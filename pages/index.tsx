@@ -1,4 +1,4 @@
-import { React, useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark as style } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { firebase } from "src/initFirebase";
@@ -24,7 +24,7 @@ import {
 } from "@reach/combobox";
 
 import "@reach/combobox/styles.css";
-import mapStyles from "./mapStyles";
+//import mapStyles from "./mapStyles";
 
 const mapContainerStyle = {
   with: "100vw",
@@ -36,9 +36,9 @@ const center = {
   lng: 25.25803023912335,
 };
 
-const options = {
-  styles: mapStyles,
-};
+// const options = {
+//   styles: mapStyles,
+// };
 
 const db = firebase.database();
 const libraries = ["places"];
@@ -75,7 +75,7 @@ export default function Home() {
           mapContainerStyle={mapContainerStyle}
           zoom={8}
           center={center}
-          options={options}
+          //options={options}
           onClick={(event) => {
             setMarkers((current) => [
               ...current,
