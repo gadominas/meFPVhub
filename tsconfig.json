@@ -16,8 +16,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/mapStyles.js"],
   "exclude": ["node_modules"]
 }

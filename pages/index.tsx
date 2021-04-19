@@ -23,9 +23,8 @@ import {
   ComboboxList,
   ComboboxOption,
 } from "@reach/combobox";
-
 import "@reach/combobox/styles.css";
-import mapStyles from "./mapStyles";
+//import mapStyles from "./mapStyles";
 
 const mapContainerStyle = {
   with: "100vw",
@@ -37,19 +36,20 @@ const center = {
   lng: 25.25803023912335,
 };
 
-const options = {
-  styles: mapStyles,
-};
+// const options = {
+//   styles: mapStyles,
+// };
 
 const db = firebase.database();
 const libraries = ["places"];
+const [markers, setMarkers] = useState([] as any);
 
 export default function Home() {
   //console.log(process.env.NEXT_APP_GOOGLE_MAPS_APIE_KEY);
-  const [markers, setMarkers] = useState([]);
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyAvY9qc9qANpIAvCX3MoSJfwjsMx_Ns_uQ",
-    libraries,
+    libraries: ["places"],
   });
 
   const { user, loading, logout } = useAuth();
@@ -76,9 +76,9 @@ export default function Home() {
           mapContainerStyle={mapContainerStyle}
           zoom={8}
           center={center}
-          options={options}
+          //options={options}
           onClick={(event) => {
-            setMarkers((current) => [
+            setMarkers((current: any) => [
               ...current,
               {
                 lat: event.latLng.lat(),
