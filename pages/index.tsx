@@ -7,6 +7,7 @@ import { useAuth } from "src/authProvider";
 import {
   GoogleMap,
   useLoadScript,
+  useJsApiLoader,
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
@@ -24,7 +25,7 @@ import {
 } from "@reach/combobox";
 
 import "@reach/combobox/styles.css";
-//import mapStyles from "./mapStyles";
+import mapStyles from "./mapStyles";
 
 const mapContainerStyle = {
   with: "100vw",
@@ -36,9 +37,9 @@ const center = {
   lng: 25.25803023912335,
 };
 
-// const options = {
-//   styles: mapStyles,
-// };
+const options = {
+  styles: mapStyles,
+};
 
 const db = firebase.database();
 const libraries = ["places"];
@@ -46,7 +47,7 @@ const libraries = ["places"];
 export default function Home() {
   //console.log(process.env.NEXT_APP_GOOGLE_MAPS_APIE_KEY);
   const [markers, setMarkers] = useState([]);
-  const { isLoaded, loadErrors } = useLoadScript({
+  const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyAvY9qc9qANpIAvCX3MoSJfwjsMx_Ns_uQ",
     libraries,
   });
@@ -57,7 +58,7 @@ export default function Home() {
   if (!user) return <FirebaseAuth />;
 
   console.log("isLoaded:" + isLoaded);
-  if (loadErrors) return "Errors loadng maps";
+  if (loadError) return "Errors loadng maps";
   if (!isLoaded) return "Loading maps";
 
   return (
@@ -75,7 +76,7 @@ export default function Home() {
           mapContainerStyle={mapContainerStyle}
           zoom={8}
           center={center}
-          //options={options}
+          options={options}
           onClick={(event) => {
             setMarkers((current) => [
               ...current,
