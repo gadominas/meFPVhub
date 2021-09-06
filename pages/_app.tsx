@@ -1,13 +1,22 @@
 import { AppProps } from "next/app";
-import { AuthProvider } from "src/authProvider";
-import "../styles/globals.css";
+import Head from "next/head";
+import { ApolloProvider } from "@apollo/client";
+import { useApollo } from "src/apollo";
+import { AuthProvider } from "src/auth/useAuth";
+import "../styles/index.css";
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
+  const client = useApollo();
+
   return (
     <AuthProvider>
-      <Component {...pageProps} />
+      <ApolloProvider client={client}>
+        <Head>
+          <title>FPV spots to fly around</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Component {...pageProps} />
+      </ApolloProvider>
     </AuthProvider>
   );
 }
-
-export default MyApp;

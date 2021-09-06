@@ -1,6 +1,7 @@
 import { FunctionComponent, useState, useEffect } from "react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { firebase } from "src/initFirebase";
+import firebase from "firebase/app";
+import "firebase/auth";
 
 const firebaseAuthConfig = {
   signInFlow: "popup",
@@ -9,28 +10,25 @@ const firebaseAuthConfig = {
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
       requireDisplayName: false,
     },
-    {
-      provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    },
   ],
   signInSuccessUrl: "/",
 };
 
 const FirebaseAuth: FunctionComponent = () => {
-  const [show, setShow] = useState(false);
+  const [renderAuth, setRenderAuth] = useState(false);
 
   useEffect(() => {
-    setShow(true);
+    setRenderAuth(true);
   }, []);
 
   return (
-    <div>
-      {show && (
+    <div className="mt-16">
+      {renderAuth ? (
         <StyledFirebaseAuth
           uiConfig={firebaseAuthConfig}
           firebaseAuth={firebase.auth()}
         />
-      )}
+      ) : null}
     </div>
   );
 };
